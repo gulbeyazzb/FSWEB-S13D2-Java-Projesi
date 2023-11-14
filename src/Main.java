@@ -1,5 +1,6 @@
 import org.w3c.dom.ls.LSOutput;
-import java.util.* ;
+
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,37 +28,34 @@ public class Main {
 
     }
 
-    public static boolean isPerfectNumber(int num){
-        if(num<0) return false;
-        int divs=0;
-        boolean has=false;
-        for(int i=1;i<num; i++){
-            if(num%i==0){
-               divs += i ;
-            }else{
-               divs +=0;
+    public static boolean isPerfectNumber(int num) {
+        if (num < 0) return false;
+        int divs = 0;
+        for (int i = 1; i < num/2; i++) {
+            if (num % i == 0) {
+                divs += i;
             }
         }
         System.out.println(divs);
-       return divs==num;
+        return divs == num;
     }
 
     public static String numberToWords(int num) {
         if (num < 0) return "invalid Value";
-        String[] words = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+        String[] words = {"Zero ", "One ", "Two ", "Three ", "Four ", "Five ", "Six ", "Seven ", "Eight ", "Nine "};
         String[] numbers = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
         String stringNum = String.valueOf(num);
-        String[] wordsOfNum =new String[stringNum.length()];
-        String joinString1="";
-        for(int i=0;i<stringNum.length();i++){
-             String chars =Character.toString(stringNum.charAt(i));
-            int intChars=Integer.parseInt(chars);
-          ;
+        String[] wordsOfNum = new String[stringNum.length()];
+        String joinString1 = "";
+        for (int i = 0; i < stringNum.length(); i++) {
+            String chars = Character.toString(stringNum.charAt(i));
+            int intChars = Integer.parseInt(chars);
+            ;
             joinString1 += words[intChars];
         }
 
-        return  joinString1;
+        return joinString1.trim();
 
     }
 
